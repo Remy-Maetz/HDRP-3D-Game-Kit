@@ -4,10 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Wall01Broken_Mat
-  m_Shader: {fileID: 4800000, guid: e95b884462a6a7a4eb11404c32625407, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: a6b26c3622b4c234a8a4f3709c8ada47,
+    type: 3}
   m_ShaderKeywords: _NORMALMAP _USE_MASK_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

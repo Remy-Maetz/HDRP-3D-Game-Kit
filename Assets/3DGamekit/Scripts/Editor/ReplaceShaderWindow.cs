@@ -69,18 +69,14 @@ public class ReplaceShaderWindow : EditorWindow
                     case TargetMode.Project:
                         targets.AddRange( // Add
                             AssetDatabase.FindAssets("t:Material") // All materials in the project
-                                .Select( a => AssetDatabase.LoadAllAssetsAtPath( AssetDatabase.GUIDToAssetPath(a) ).Select( a2 => (Material) a2 ) ) // Get all materials in found assets
-                                .Aggregate( new List<Material>(), (current, next) => // aggretate to a big list
-                                {
-                                    current.AddRange(next.ToList());
-                                    return current;
-                                })
+                                .Select( AssetDatabase.GUIDToAssetPath )
+                                .Select( AssetDatabase.LoadAssetAtPath<Material> ) // Load materials
                                 .Where( m => !targets.Contains(m) ) // remove doubles
                         );
                         break;
             }
 
-            targets.Distinct();
+            targets = targets.Distinct().Where(m => m.shader == sourceShader).ToList();
 
             foreach (var target in targets)
                 ReplaceShader(target, sourceShader, targetShader);
